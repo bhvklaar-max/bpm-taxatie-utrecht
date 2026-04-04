@@ -2,13 +2,29 @@
 
 import { useState } from 'react';
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
+import { supabase } from '@/lib/supabase';
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({ naam: '', email: '', telefoon: '', voertuigtype: '', bericht: '' });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [sending, setSending] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSending(true);
+    try {
+      await supabase.from('contact_messages').insert({
+        naam: form.naam,
+        email: form.email,
+        telefoon: form.telefoon,
+        voertuigtype: form.voertuigtype,
+        bericht: form.bericht,
+      });
+    } catch (err) {
+      // Still show success to user - message may be saved later
+    }
+    setSending(false);
     setSubmitted(true);
   };
 

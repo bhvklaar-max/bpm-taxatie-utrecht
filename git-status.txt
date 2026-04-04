@@ -1,0 +1,36 @@
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   build-output.txt
+	new file:   build-output2.txt
+	new file:   files-check.txt
+	new file:   kie-query.txt
+	new file:   kie-response.txt
+	new file:   kie-response2.txt
+	new file:   kie-response3.txt
+	new file:   kie-status.txt
+	new file:   kie-status2.txt
+	new file:   kie-status3.txt
+	new file:   kie-status4.txt
+	new file:   kie-status5.txt
+	new file:   kie-status6.txt
+	new file:   kie-tasks.txt
+	new file:   kie-test.txt
+	new file:   slug-check.txt
+	modified:   src/app/afspraak-maken/page.tsx
+	new file:   src/app/blog/[slug]/page.tsx
+	new file:   src/app/blog/page.tsx
+	new file:   src/app/bpm-calculator/layout.tsx
+	new file:   src/app/bpm-calculator/page.tsx
+	modified:   src/app/contact/page.tsx
+	new file:   src/app/robots.ts
+	new file:   src/app/sitemap.ts
+	new file:   src/lib/blogData.ts
+	new file:   src/lib/bpmCalculation.ts
+	new file:   src/lib/taxatieEngine.ts
+	new file:   src/lib/vehicleKnowledgeBase.ts
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	git-status.txt
+
