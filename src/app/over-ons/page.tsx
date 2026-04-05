@@ -3,8 +3,9 @@ import Link from "next/link";
 import { Shield, Award, Users, Target, CheckCircle, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Over Ons",
-  description: "Leer meer over BPM Taxatie Utrecht. Erkend en onafhankelijk taxatiebedrijf gevestigd in Utrecht. Jarenlange ervaring in voertuigtaxaties voor BPM.",
+  title: "Over BPM Taxatie Utrecht | Erkend Taxateur",
+  description: "BPM Taxatie Utrecht - Uw erkende BPM taxateur in de regio Utrecht. ROTA-gecertificeerd, onafhankelijk en betrouwbaar. Leer meer over onze werkwijze en certificeringen.",
+  keywords: ["erkende taxateur Utrecht", "ROTA taxateur", "BPM taxatie bedrijf Utrecht", "onafhankelijke taxateur"],
 };
 
 export default function OverOns() {

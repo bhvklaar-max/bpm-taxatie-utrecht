@@ -3,8 +3,9 @@ import Link from "next/link";
 import { CheckCircle, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Tarieven",
-  description: "Bekijk onze scherpe tarieven voor BPM taxatie. Particulier vanaf €149 ex BTW. Zakelijke staffelprijzen beschikbaar. Transparant en zonder verborgen kosten.",
+  title: "BPM Taxatie Tarieven | Vanaf €149 ex BTW",
+  description: "Transparante tarieven voor BPM taxatie in Utrecht. Standaard €149, Spoed €199, Oldtimer €249 (ex BTW). Zakelijke staffelkorting beschikbaar. Geen verborgen kosten, rapport binnen 24 uur.",
+  keywords: ["BPM taxatie kosten", "BPM taxatierapport prijs", "goedkope BPM taxatie", "BPM taxatie tarieven"],
 };
 
 export default function Tarieven() {

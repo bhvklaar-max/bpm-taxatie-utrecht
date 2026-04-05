@@ -3,8 +3,9 @@ import Link from "next/link";
 import { Search, ClipboardCheck, FileText, ArrowRight, Phone, CheckCircle } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Hoe Werkt Het",
-  description: "Ontdek hoe onze BPM taxatie service werkt. In drie eenvoudige stappen naar uw officiële taxatierapport. Aanvraag, inspectie en rapport binnen 24 uur.",
+  title: "Hoe Werkt BPM Taxatie? | 3 Stappen naar uw Rapport",
+  description: "Ontdek hoe BPM taxatie werkt bij BPM Taxatie Utrecht. In 3 eenvoudige stappen naar uw officieel taxatierapport: aanvraag, inspectie en rapport binnen 24 uur. Bespaar tot 30% op uw BPM.",
+  keywords: ["hoe werkt BPM taxatie", "BPM taxatie stappen", "taxatierapport aanvragen", "BPM inspectie proces"],
 };
 
 const steps = [
