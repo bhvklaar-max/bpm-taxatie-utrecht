@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Shield, Award, Users, Target, CheckCircle, ArrowRight } from "lucide-react";
 
@@ -11,8 +12,16 @@ export const metadata: Metadata = {
 export default function OverOns() {
   return (
     <>
-      <section className="bg-[#1e3a5f] text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 text-center">
+      <section className="relative text-white py-24 overflow-hidden">
+        <Image
+          src="/images/hero-team.jpeg"
+          alt="BPM Taxatie Utrecht teamfoto op kantoor"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1e3a5f]/90 to-[#1e3a5f]/70" />
+        <div className="relative max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-4xl sm:text-5xl font-bold mb-4">Over Ons</h1>
           <p className="text-xl text-gray-200 max-w-2xl mx-auto">Erkend, onafhankelijk en gepassioneerd over eerlijke voertuigtaxaties</p>
         </div>
@@ -32,21 +41,38 @@ export default function OverOns() {
               <p className="text-gray-600 leading-relaxed">
                 Wij geloven dat iedereen recht heeft op een eerlijke BPM-berekening. Daarom zetten wij ons in om voor elke klant de meest gunstige, maar altijd eerlijke en wettelijk correcte waardebepaling te maken.
               </p>
+              <div className="mt-6 relative rounded-xl overflow-hidden h-48">
+                <Image
+                  src="/images/office-utrecht.jpeg"
+                  alt="Ons kantoor in Utrecht"
+                  fill
+                  className="object-cover rounded-xl"
+                />
+              </div>
             </div>
-            <div className="bg-gradient-to-br from-[#1e3a5f] to-[#2a5080] rounded-2xl p-8 text-white">
-              <h3 className="text-2xl font-bold mb-6">Cijfers &amp; Feiten</h3>
-              <div className="grid grid-cols-2 gap-6">
-                {[
-                  { num: "500+", label: "Taxaties uitgevoerd" },
-                  { num: "98%", label: "Klanttevredenheid" },
-                  { num: "<24u", label: "Gemiddelde levertijd" },
-                  { num: "30%", label: "Gem. BPM besparing" },
-                ].map((s) => (
-                  <div key={s.label} className="text-center">
-                    <div className="text-3xl font-bold text-orange-400">{s.num}</div>
-                    <div className="text-sm text-gray-300 mt-1">{s.label}</div>
-                  </div>
-                ))}
+            <div className="relative rounded-2xl p-8 text-white overflow-hidden">
+              <Image
+                src="/images/about-garage.jpeg"
+                alt="Taxatie werkplaats met voertuigen"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#1e3a5f]/90 to-[#1e3a5f]/80" />
+              <div className="relative">
+                <h3 className="text-2xl font-bold mb-6">Cijfers &amp; Feiten</h3>
+                <div className="grid grid-cols-2 gap-6">
+                  {[
+                    { num: "500+", label: "Taxaties uitgevoerd" },
+                    { num: "98%", label: "Klanttevredenheid" },
+                    { num: "<24u", label: "Gemiddelde levertijd" },
+                    { num: "30%", label: "Gem. BPM besparing" },
+                  ].map((s) => (
+                    <div key={s.label} className="text-center">
+                      <div className="text-3xl font-bold text-[#f97316]">{s.num}</div>
+                      <div className="text-sm text-gray-300 mt-1">{s.label}</div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

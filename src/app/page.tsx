@@ -1,4 +1,17 @@
 import Link from "next/link";
+import Image from "next/image";
+
+// KIE.AI generated images - local paths
+const IMAGES = {
+  hero: "/images/hero-team.jpeg",
+  inspection: "/images/car-inspection.jpeg",
+  germanImports: "/images/german-imports.jpeg",
+  happyCustomer: "/images/happy-customer.jpeg",
+  rapport: "/images/rapport-document.jpeg",
+  office: "/images/office-utrecht.jpeg",
+  aboutGarage: "/images/about-garage.jpeg",
+  cta: "/images/cta-background.jpeg",
+};
 import {
   Shield,
   Clock,
@@ -79,12 +92,21 @@ const faqs = [
 export default function Home() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="hero-gradient text-white py-20 lg:py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Hero Section with Background Image */}
+      <section className="relative text-white py-20 lg:py-32 overflow-hidden">
+        <Image
+          src={IMAGES.hero}
+          alt="Team BPM Taxatie Utrecht - Professioneel taxatieteam in garage"
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1e3a5f]/95 via-[#1e3a5f]/85 to-[#1e3a5f]/60" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <span className="inline-block bg-white/20 text-white px-4 py-1.5 rounded-full text-sm font-medium mb-6">
-              Erkend & Onafhankelijk Taxateur in Utrecht
+            <span className="inline-block bg-[#f97316] text-white px-4 py-1.5 rounded-full text-sm font-medium mb-6">
+              Erkend &amp; Onafhankelijk Taxateur in Utrecht
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               Erkende BPM Taxatie
@@ -97,14 +119,14 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/afspraak-maken"
-                className="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-dark text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+                className="inline-flex items-center justify-center gap-2 bg-[#f97316] hover:bg-[#ea580c] text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors shadow-lg"
               >
                 Direct Afspraak Maken
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <a
                 href="tel:+31301234567"
-                className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-lg text-lg font-semibold border border-white/30 transition-colors"
+                className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-lg text-lg font-semibold border border-white/30 transition-colors backdrop-blur-sm"
               >
                 <Phone className="w-5 h-5" />
                 030 - 123 4567
@@ -148,18 +170,30 @@ export default function Home() {
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
-            {steps.map((step) => (
-              <div key={step.num} className="relative text-center">
-                <div className="w-20 h-20 bg-[#1e3a5f] rounded-2xl flex items-center justify-center mx-auto mb-6">
-                  <step.icon className="w-10 h-10 text-white" />
+            {steps.map((step, i) => {
+              const stepImages = [
+                IMAGES.rapport,
+                IMAGES.inspection,
+                IMAGES.happyCustomer,
+              ];
+              return (
+                <div key={step.num} className="relative text-center">
+                  <div className="relative w-full h-48 rounded-2xl overflow-hidden mb-6">
+                    <Image src={stepImages[i]} alt={step.title} fill className="object-cover" sizes="(max-width:768px) 100vw, 33vw" />
+                    <div className="absolute inset-0 bg-[#1e3a5f]/40 flex items-center justify-center">
+                      <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center">
+                        <step.icon className="w-8 h-8 text-white" />
+                      </div>
+                    </div>
+                    <span className="absolute top-3 right-3 bg-[#f97316] text-white w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold">
+                      {step.num}
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{step.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{step.desc}</p>
                 </div>
-                <span className="text-5xl font-bold text-gray-100 absolute top-0 right-4 lg:right-8">
-                  {step.num}
-                </span>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{step.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{step.desc}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -176,18 +210,34 @@ export default function Home() {
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {diensten.map((dienst) => (
-              <div
-                key={dienst.title}
-                className="card-hover bg-white border border-gray-200 rounded-xl p-6 hover:border-[#1e3a5f]/30"
-              >
-                <div className="w-12 h-12 bg-orange-50 rounded-lg flex items-center justify-center mb-4">
-                  <dienst.icon className="w-6 h-6 text-orange-500" />
+            {diensten.map((dienst, i) => {
+              const dienstImages = [
+                IMAGES.germanImports,
+                IMAGES.inspection,
+                IMAGES.germanImports,
+                IMAGES.cta,
+                IMAGES.germanImports,
+                IMAGES.rapport,
+              ];
+              return (
+                <div
+                  key={dienst.title}
+                  className="card-hover bg-white border border-gray-200 rounded-xl overflow-hidden hover:border-[#1e3a5f]/30 group"
+                >
+                  <div className="relative h-40 overflow-hidden">
+                    <Image src={dienstImages[i]} alt={dienst.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width:768px) 100vw, 33vw" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                    <div className="absolute bottom-3 left-3 w-10 h-10 bg-[#f97316] rounded-lg flex items-center justify-center">
+                      <dienst.icon className="w-5 h-5 text-white" />
+                    </div>
+                  </div>
+                  <div className="p-5">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">{dienst.title}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">{dienst.desc}</p>
+                  </div>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{dienst.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{dienst.desc}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -307,23 +357,33 @@ export default function Home() {
                 Meer over ons <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
-            <div className="bg-gradient-to-br from-[#1e3a5f] to-[#2a5080] rounded-2xl p-8 text-white">
-              <h3 className="text-2xl font-bold mb-6">Onze Garanties</h3>
-              <ul className="space-y-4">
-                {[
-                  "Erkend en onafhankelijk taxateur",
-                  "ROTA gecertificeerd",
-                  "Rapport voldoet aan alle wettelijke eisen",
-                  "Geaccepteerd door de Belastingdienst",
-                  "Transparante werkwijze",
-                  "Geen verborgen kosten",
-                ].map((item) => (
-                  <li key={item} className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-orange-400 shrink-0" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+            <div className="relative rounded-2xl overflow-hidden">
+              <Image
+                src={IMAGES.aboutGarage}
+                alt="BPM Taxatie Utrecht garage locatie"
+                width={600}
+                height={500}
+                className="object-cover w-full h-full rounded-2xl"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1e3a5f]/90 via-[#1e3a5f]/30 to-transparent rounded-2xl" />
+              <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+                <h3 className="text-2xl font-bold mb-4">Onze Garanties</h3>
+                <ul className="space-y-3">
+                  {[
+                    "Erkend en onafhankelijk taxateur",
+                    "ROTA gecertificeerd",
+                    "Rapport voldoet aan alle wettelijke eisen",
+                    "Geaccepteerd door de Belastingdienst",
+                    "Transparante werkwijze",
+                    "Geen verborgen kosten",
+                  ].map((item) => (
+                    <li key={item} className="flex items-center gap-3">
+                      <CheckCircle className="w-5 h-5 text-orange-400 shrink-0" />
+                      <span className="text-sm">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -357,8 +417,16 @@ export default function Home() {
       </section>
 
       {/* CTA Banner */}
-      <section className="hero-gradient py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="relative py-16 overflow-hidden">
+        <Image
+          src={IMAGES.cta}
+          alt="Luxe auto's showroom BPM Taxatie Utrecht"
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1e3a5f]/95 to-[#1e3a5f]/80" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
             Klaar om uw BPM te laten taxeren?
           </h2>
@@ -368,14 +436,14 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/afspraak-maken"
-              className="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-dark text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+              className="inline-flex items-center justify-center gap-2 bg-[#f97316] hover:bg-[#ea580c] text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors shadow-lg"
             >
               Direct Afspraak Maken
               <ArrowRight className="w-5 h-5" />
             </Link>
             <a
               href="tel:+31301234567"
-              className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-lg text-lg font-semibold border border-white/30 transition-colors"
+              className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-lg text-lg font-semibold border border-white/30 transition-colors backdrop-blur-sm"
             >
               <Phone className="w-5 h-5" />
               Bel Ons Direct

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { ChevronDown, ArrowRight } from 'lucide-react';
 
@@ -35,8 +36,16 @@ export default function FAQ() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <section className="bg-[#1e3a5f] text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 text-center">
+      <section className="relative text-white py-24 overflow-hidden">
+        <Image
+          src="/images/faq-hero.jpeg"
+          alt="Veelgestelde vragen over BPM taxatie"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1e3a5f]/90 to-[#1e3a5f]/70" />
+        <div className="relative max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-4xl sm:text-5xl font-bold mb-4">Veelgestelde Vragen</h1>
           <p className="text-xl text-gray-200 max-w-2xl mx-auto">Alles wat u wilt weten over BPM taxatie</p>
         </div>

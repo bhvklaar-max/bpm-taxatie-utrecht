@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { CheckCircle, ArrowRight } from "lucide-react";
 
@@ -11,8 +12,16 @@ export const metadata: Metadata = {
 export default function Tarieven() {
   return (
     <>
-      <section className="bg-[#1e3a5f] text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 text-center">
+      <section className="relative text-white py-24 overflow-hidden">
+        <Image
+          src="/images/cta-background.jpeg"
+          alt="Achtergrond hero sectie BPM taxatie tarieven"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1e3a5f]/90 via-[#1e3a5f]/75 to-[#1e3a5f]/60" />
+        <div className="relative max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-4xl sm:text-5xl font-bold mb-4">Onze Tarieven</h1>
           <p className="text-xl text-gray-200 max-w-2xl mx-auto">
             Transparante prijzen, geen verborgen kosten. Altijd een scherp tarief.
@@ -107,8 +116,16 @@ export default function Tarieven() {
           </div>
 
           {/* Wat zit erin */}
-          <div className="mt-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Wat Zit Er in Elk Rapport?</h2>
+          <div className="mt-16 relative rounded-2xl overflow-hidden">
+            <Image
+              src="/images/rapport-document.jpeg"
+              alt="Voorbeeld BPM taxatierapport document"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-[#1e3a5f]/85" />
+            <div className="relative py-12 px-6">
+            <h2 className="text-3xl font-bold text-white mb-8 text-center">Wat Zit Er in Elk Rapport?</h2>
             <div className="grid md:grid-cols-2 gap-4 max-w-3xl mx-auto">
               {[
                 "Volledige voertuigidentificatie (VIN, kenteken, specificaties)",
@@ -121,10 +138,11 @@ export default function Tarieven() {
                 "Handtekening en registratienummer taxateur",
               ].map((item) => (
                 <div key={item} className="flex items-start gap-3 p-3">
-                  <CheckCircle className="w-5 h-5 text-[#1e3a5f] shrink-0 mt-0.5" />
-                  <span className="text-gray-700">{item}</span>
+                  <CheckCircle className="w-5 h-5 text-[#f97316] shrink-0 mt-0.5" />
+                  <span className="text-gray-100">{item}</span>
                 </div>
               ))}
+            </div>
             </div>
           </div>
         </div>

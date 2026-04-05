@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Menu, X, Phone } from 'lucide-react';
+import Logo from './Logo';
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -24,13 +25,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">BT</span>
-            </div>
-            <div className="hidden sm:block">
-              <span className="text-primary font-bold text-lg leading-tight block">BPM Taxatie</span>
-              <span className="text-accent text-xs font-semibold -mt-1 block">Utrecht</span>
-            </div>
+            <Logo size="default" />
           </Link>
 
           {/* Desktop Navigation */}

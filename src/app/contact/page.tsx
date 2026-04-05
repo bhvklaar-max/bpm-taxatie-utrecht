@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 
@@ -30,8 +31,16 @@ export default function Contact() {
 
   return (
     <>
-      <section className="bg-[#1e3a5f] text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 text-center">
+      <section className="relative text-white py-24 overflow-hidden">
+        <Image
+          src="/images/happy-customer.jpeg"
+          alt="Tevreden klant bij BPM Taxatie Utrecht"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1e3a5f]/90 to-[#1e3a5f]/70" />
+        <div className="relative max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-4xl sm:text-5xl font-bold mb-4">Contact</h1>
           <p className="text-xl text-gray-200 max-w-2xl mx-auto">Heeft u vragen? Neem gerust contact met ons op</p>
         </div>
@@ -120,9 +129,16 @@ export default function Contact() {
                 <a href="tel:+31301234567" className="block text-center bg-[#f97316] hover:bg-[#ea580c] text-white py-3 rounded-lg font-semibold mb-2">Bel Direct</a>
               </div>
 
-              {/* Map placeholder */}
-              <div className="bg-gray-200 rounded-xl h-48 flex items-center justify-center">
-                <p className="text-gray-500 text-sm">Google Maps - Utrecht</p>
+              {/* Utrecht afbeelding */}
+              <div className="relative rounded-xl h-48 overflow-hidden">
+                <Image
+                  src="/images/about-garage.jpeg"
+                  alt="Ons taxatiebedrijf in Utrecht"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1e3a5f]/60 to-transparent" />
+                <p className="absolute bottom-3 left-4 text-white text-sm font-semibold">Utrecht</p>
               </div>
             </div>
           </div>

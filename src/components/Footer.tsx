@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import Logo from './Logo';
 
 export default function Footer() {
   return (
@@ -8,14 +9,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Company Info */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">BT</span>
-              </div>
-              <div>
-                <span className="font-bold text-lg block">BPM Taxatie</span>
-                <span className="text-orange-400 text-xs font-semibold block">Utrecht</span>
-              </div>
+            <div className="mb-4">
+              <Logo size="small" white />
             </div>
             <p className="text-gray-300 text-sm leading-relaxed">
               Uw erkende en onafhankelijke taxateur voor BPM taxatierapporten.

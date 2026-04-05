@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 const AFSCHRIJVINGSTABEL: Record<number, number> = {
@@ -86,8 +87,16 @@ export default function BpmCalculatorPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-[#1e3a5f] text-white py-16 md:py-24">
-        <div className="container mx-auto px-4 text-center">
+      <section className="relative text-white py-16 md:py-24 overflow-hidden">
+        <Image
+          src="/images/blog-bpm-uitleg.jpeg"
+          alt="BPM berekening voor geimporteerde voertuigen"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1e3a5f]/90 via-[#1e3a5f]/80 to-[#1e3a5f]/70" />
+        <div className="relative container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">BPM Calculator</h1>
           <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto">
             Bereken snel een indicatie van de BPM-kosten voor uw ge&iuml;mporteerde voertuig.

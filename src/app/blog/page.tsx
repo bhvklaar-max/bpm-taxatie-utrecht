@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { blogPosts } from "@/lib/blogData";
 
 export const metadata: Metadata = {
@@ -22,16 +23,38 @@ export const metadata: Metadata = {
   },
 };
 
+const cardImages = [
+  "/images/blog-bpm-uitleg.jpeg",
+  "/images/blog-import-proces.jpeg",
+  "/images/blog-besparen.jpeg",
+  "/images/car-inspection.jpeg",
+  "/images/german-imports.jpeg",
+];
+
 export default function BlogPage() {
   return (
     <main className="min-h-screen bg-gray-50">
       {/* Hero sectie */}
-      <section className="bg-blue-900 text-white py-16">
-        <div className="container mx-auto px-4 max-w-6xl">
+      <section className="relative text-white py-24 overflow-hidden">
+        <Image
+          src="/images/office-utrecht.jpeg"
+          alt="Kantoor BPM Taxatie Utrecht"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(135deg, rgba(30,58,95,0.92) 0%, rgba(30,58,95,0.75) 50%, rgba(249,115,22,0.6) 100%)",
+          }}
+        />
+        <div className="relative container mx-auto px-4 max-w-6xl">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Blog &mdash; BPM Taxatie Utrecht
           </h1>
-          <p className="text-xl text-blue-100 max-w-2xl">
+          <p className="text-xl text-white/90 max-w-2xl">
             Deskundige artikelen over BPM, auto-import en taxatie. Blijf op de
             hoogte van de laatste ontwikkelingen en bespaar op uw BPM-aangifte.
           </p>
@@ -41,11 +64,26 @@ export default function BlogPage() {
       {/* Blog grid */}
       <section className="container mx-auto px-4 max-w-6xl py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogPosts.map((post) => (
+          {blogPosts.map((post, index) => (
             <article
               key={post.slug}
               className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col"
             >
+              <div className="relative w-full h-48">
+                <Image
+                  src={cardImages[index % cardImages.length]}
+                  alt={post.title}
+                  fill
+                  className="object-cover"
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "linear-gradient(to bottom, transparent 50%, rgba(30,58,95,0.15) 100%)",
+                  }}
+                />
+              </div>
               <div className="p-6 flex flex-col flex-1">
                 <div className="flex items-center gap-3 text-sm text-gray-500 mb-3">
                   <time dateTime={post.date}>
@@ -61,7 +99,14 @@ export default function BlogPage() {
                 <h2 className="text-xl font-bold text-gray-900 mb-3 leading-tight">
                   <Link
                     href={`/blog/${post.slug}`}
-                    className="hover:text-blue-700 transition-colors"
+                    className="transition-colors"
+                    style={{ color: "#1e3a5f" }}
+                    onMouseEnter={(e) =>
+                      ((e.target as HTMLElement).style.color = "#f97316")
+                    }
+                    onMouseLeave={(e) =>
+                      ((e.target as HTMLElement).style.color = "#1e3a5f")
+                    }
                   >
                     {post.title}
                   </Link>
@@ -71,7 +116,11 @@ export default function BlogPage() {
                   {post.keywords.slice(0, 3).map((keyword) => (
                     <span
                       key={keyword}
-                      className="bg-blue-50 text-blue-700 text-xs font-medium px-2.5 py-1 rounded-full"
+                      className="text-xs font-medium px-2.5 py-1 rounded-full"
+                      style={{
+                        backgroundColor: "rgba(30,58,95,0.08)",
+                        color: "#1e3a5f",
+                      }}
                     >
                       {keyword}
                     </span>
@@ -79,7 +128,8 @@ export default function BlogPage() {
                 </div>
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="inline-flex items-center text-blue-700 font-semibold hover:text-blue-900 transition-colors mt-auto"
+                  className="inline-flex items-center font-semibold transition-colors mt-auto"
+                  style={{ color: "#f97316" }}
                 >
                   Lees meer
                   <svg
@@ -103,18 +153,35 @@ export default function BlogPage() {
       </section>
 
       {/* CTA sectie */}
-      <section className="bg-blue-900 text-white py-16">
-        <div className="container mx-auto px-4 max-w-4xl text-center">
+      <section className="relative text-white py-16 overflow-hidden">
+        <Image
+          src="/images/cta-background.jpeg"
+          alt="Neem contact op met BPM Taxatie Utrecht"
+          fill
+          className="object-cover"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(135deg, rgba(30,58,95,0.93) 0%, rgba(30,58,95,0.85) 60%, rgba(249,115,22,0.7) 100%)",
+          }}
+        />
+        <div className="relative container mx-auto px-4 max-w-4xl text-center">
           <h2 className="text-3xl font-bold mb-4">
             Heeft u een BPM-taxatierapport nodig?
           </h2>
-          <p className="text-blue-100 text-lg mb-8">
+          <p className="text-white/90 text-lg mb-8">
             Neem vandaag nog contact op voor een vrijblijvende offerte. Wij
             helpen u graag met een professioneel taxatierapport.
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-white text-blue-900 font-bold py-3 px-8 rounded-full hover:bg-blue-50 transition-colors"
+            className="inline-block font-bold py-3 px-8 rounded-full transition-colors"
+            style={{
+              backgroundColor: "#f97316",
+              color: "#ffffff",
+            }}
           >
             Neem contact op
           </Link>

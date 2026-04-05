@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { Calendar, CheckCircle } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 
@@ -53,8 +54,16 @@ export default function AfspraakMaken() {
 
   return (
     <>
-      <section className="bg-[#1e3a5f] text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 text-center">
+      <section className="relative text-white py-24 overflow-hidden">
+        <Image
+          src="/images/german-imports.jpeg"
+          alt="Duitse importauto voor BPM taxatie afspraak"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1e3a5f]/90 via-[#1e3a5f]/75 to-[#1e3a5f]/60" />
+        <div className="relative max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-4xl sm:text-5xl font-bold mb-4">Afspraak Maken</h1>
           <p className="text-xl text-gray-200 max-w-2xl mx-auto">Plan uw BPM taxatie afspraak in bij onze locatie in Utrecht</p>
         </div>
