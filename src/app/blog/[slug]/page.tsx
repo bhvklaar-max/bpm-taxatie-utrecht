@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url: `https://bpmtaxatieutrecht.nl/blog/${post.slug}`,
       type: "article",
       publishedTime: post.date,
-      authors: [post.author],
+      authors: ["BPM Taxatie Utrecht"],
     },
     alternates: {
       canonical: `https://bpmtaxatieutrecht.nl/blog/${post.slug}`,
@@ -62,7 +62,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     dateModified: post.date,
     author: {
       "@type": "Organization",
-      name: post.author,
+      name: "BPM Taxatie Utrecht",
       url: "https://bpmtaxatieutrecht.nl",
     },
     publisher: {
@@ -128,7 +128,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                   <span>&bull;</span>
                   <span>{post.readTime} leestijd</span>
                   <span>&bull;</span>
-                  <span>{post.author}</span>
+                  <span>{"BPM Taxatie Utrecht"}</span>
                 </div>
               </header>
 
