@@ -99,14 +99,7 @@ export default function BlogPage() {
                 <h2 className="text-xl font-bold text-gray-900 mb-3 leading-tight">
                   <Link
                     href={`/blog/${post.slug}`}
-                    className="transition-colors"
-                    style={{ color: "#1e3a5f" }}
-                    onMouseEnter={(e) =>
-                      ((e.target as HTMLElement).style.color = "#f97316")
-                    }
-                    onMouseLeave={(e) =>
-                      ((e.target as HTMLElement).style.color = "#1e3a5f")
-                    }
+                    className="text-[#1e3a5f] hover:text-[#f97316] transition-colors"
                   >
                     {post.title}
                   </Link>
